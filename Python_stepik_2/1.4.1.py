@@ -37,9 +37,7 @@ for i in range(n):
 	elif cmd == 'add':
 		add(par1, par2)
 	else:
-		b = get(par1, par2)
-		# print(b)
-		s += str(b) + '\n'
+		s += str(get(par1, par2)) + '\n'
 print(s)
 
 
