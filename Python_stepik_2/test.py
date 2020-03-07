@@ -1,7 +1,10 @@
-import os
-import os.path
-import shutil
+import operator as op
 
-os.chdir(r'C:\Users\arkka\PycharmProjects\Python_tasks')
-for current_dir, dirs, files in os.walk('.'):
-	print(current_dir, dirs, files)
+# x = {1: 'a', 2: 'abc', 3: 'ab'}
+# print(x.items())
+x = [1, 2, 3]
+f = op.itemgetter(1)
+print(f(x))
+
+f = op.attrgetter('sort')
+print(f([]))
