@@ -1,10 +1,9 @@
-import operator as op
+import re
 
-# x = {1: 'a', 2: 'abc', 3: 'ab'}
-# print(x.items())
-x = [1, 2, 3]
-f = op.itemgetter(1)
-print(f(x))
-
-f = op.attrgetter('sort')
-print(f([]))
+pattern = r"a\w.c" # r"a[a-c]c", r"a[^a-zA-Z]c" - диапазон (^ - это символ
+# НЕ от всего выражения)
+s = 'aa-caacabcbacbacbacbcabacbacacbbacbac' # abc. acc - подходят
+match_obj = re.match(pattern, s)
+print(match_obj)
+all_inclusions = re.findall(pattern, s)
+print(all_inclusions)

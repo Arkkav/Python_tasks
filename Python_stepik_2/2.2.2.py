@@ -1,12 +1,16 @@
 import simplecrypt
 
-with open(r"C:\Users\arkka\Desktop\encrypted.bin", "rb") as inp:
+with open("encrypted.bin", "rb") as inp, open("passwords.txt", "r") as pas:
 	encrypted = inp.read()
-	with open(r"C:\Users\arkka\Desktop\passwords.txt", "r") as pas:
-		a = pas.read().strip().split('\n')
-		for i in a:
-			s = simplecrypt.decrypt(i, encrypted)
+	# a = pas.read().strip().split('\n')
+	for i in pas:
+		a = i.strip()
+		try:
+			s = simplecrypt.decrypt(a, encrypted)
+		except simplecrypt.DecryptionException:
+			print('Error')
+		else:
+			print(a)
 			print(s)
-
 
 
